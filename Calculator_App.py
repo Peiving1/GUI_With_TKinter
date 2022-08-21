@@ -114,6 +114,8 @@ def button_m_sub():
     global memory
     memory = float(memory) - float(e.get())
 
+def button_decimal():
+    e.insert(0, "0.")
 
 # Define Buttons
 
@@ -159,7 +161,8 @@ button_mc = Button(root, text="MC", padx=20, pady=20,
                    command=button_mc)
 button_m_sub = Button(root, text="M-", padx=20, pady=20,
                       command=button_m_sub)
-
+button_decimal = Button(root, text=".", padx=25, pady=20,
+                        command=button_decimal)
 # button_percentage =
 
 
@@ -189,5 +192,6 @@ button_mr.grid(row=5, column=1)
 button_m_add.grid(row=5, column=2)
 button_mc.grid(row=5, column=3)
 button_m_sub.grid(row=6, column=0)
+button_decimal.grid(row=6,column=1)
 
 root.mainloop()
