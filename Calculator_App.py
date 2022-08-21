@@ -64,7 +64,7 @@ def button_equal():
     # e.insert(0, f_num + float(num2))
 
     if math == "multiply":
-        e.insert(0, f_num * float(num2))
+        e.insert(0,f_num * float(num2))
     elif math == "addition":
         ans = f_num + float(num2)
         e.insert(0, float(ans))
@@ -78,9 +78,8 @@ def button_sqrt():
     num1 = e.get()
     e.delete(0, END)
     num2 = float(num1)
-    num2 = math.sqrt(num2)
-    e.insert(0, str(num2))
-
+    num2 = num2 ** (1/2)
+    e.insert(0, num2)
 
 def button_mr():
     # Recall the current memory register value
