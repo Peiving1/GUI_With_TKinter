@@ -93,7 +93,7 @@ def button_mc():
     global memory
     memory = "0"
     display = e.get()
-    e.delete(2,8)
+    e.delete(0, END)
     e.insert(0, "Memory Clear")
     #sleep(0.5)
     #e.delete(0, END)
