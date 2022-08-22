@@ -115,7 +115,9 @@ def button_m_sub():
     memory = float(memory) - float(e.get())
 
 def button_decimal():
-    e.insert(0, "0.")
+    num = e.get()
+    e.delete(0, END)
+    e.insert(0, num + ".")
 
 # Define Buttons
 
