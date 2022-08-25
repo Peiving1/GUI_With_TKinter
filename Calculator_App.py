@@ -130,6 +130,11 @@ def button_m_sub():
     global memory
     memory = float(memory) - float(e.get())
 
+def button_bck():
+    num = e.get()
+    e.delete(0, END)
+    e.insert(0, num[0:-1])
+
 
 # Define Buttons
 
@@ -179,7 +184,8 @@ button_decimal = Button(root, text=".", padx=25, pady=20,
                         command=button_decimal)
 button_plus_minus = Button(root, text= "+/-", padx=20, pady=20,
                            command=button_plus_minus)
-
+button_bck = Button(root, text="bck", padx=18, pady=20,
+                    command=button_bck)
 
 # Put buttons on the screen
 
@@ -213,6 +219,8 @@ button_mr.grid(row=6, column=0)
 button_m_add.grid(row=6, column=1)
 button_m_sub.grid(row=6, column=2)
 button_mc.grid(row=6, column=3)
+
+button_bck.grid(row=7, column=0)
 
 
 root.mainloop()
