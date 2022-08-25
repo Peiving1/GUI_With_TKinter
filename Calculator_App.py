@@ -3,7 +3,7 @@ import math
 from time import sleep
 
 root = Tk()
-root.title("A Normal Calculator")
+root.title("A Better Calculator")
 root.iconbitmap("D:\PycharmProjects\Tkinter_GUI\\noun_itsukushima_shrine_2935953_vU0_icon.ico")
 
 e = Entry(root, width=30, borderwidth=10)
@@ -81,6 +81,22 @@ def button_sqrt():
     num2 = num2 ** (1/2)
     e.insert(0, num2)
 
+def button_plus_minus():
+    num= float(e.get())
+    e.delete(0, END)
+    if num >= 0:
+        num = str(num)
+        e.insert(0, "-"+ num)
+    elif num <= 0:
+        num = num * -1
+        num = str(num)
+        e.insert(0, num)
+
+def button_decimal():
+    num = e.get()
+    e.delete(0, END)
+    e.insert(0, num + ".")
+
 def button_mr():
     # Recall the current memory register value
     global memory
@@ -114,10 +130,6 @@ def button_m_sub():
     global memory
     memory = float(memory) - float(e.get())
 
-def button_decimal():
-    num = e.get()
-    e.delete(0, END)
-    e.insert(0, num + ".")
 
 # Define Buttons
 
@@ -143,9 +155,9 @@ button_0 = Button(root, text="0", padx=25, pady=20,
                   command=lambda: button_click(0))
 button_add = Button(root, text="+", padx=28, pady=20,
                     command=button_add)
-button_clear = Button(root, text="C", padx=24, pady=20,
+button_clear = Button(root, text="C", padx=41, pady=20,
                       command=button_clear, fg="red")
-button_equal = Button(root, text="=", padx=25, pady=20,
+button_equal = Button(root, text="=", padx=41, pady=20,
                       command=button_equal)
 button_subtract = Button(root, text="-", padx=29, pady=20,
                          command=button_subtract)
@@ -165,7 +177,8 @@ button_m_sub = Button(root, text="M-", padx=20, pady=20,
                       command=button_m_sub)
 button_decimal = Button(root, text=".", padx=25, pady=20,
                         command=button_decimal)
-# button_percentage =
+button_plus_minus = Button(root, text= "+/-", padx=20, pady=20,
+                           command=button_plus_minus)
 
 
 # Put buttons on the screen
@@ -182,18 +195,24 @@ button_7.grid(row=1, column=0)
 button_8.grid(row=1, column=1)
 button_9.grid(row=1, column=2)
 
-button_0.grid(row=4, column=0)
-button_equal.grid(row=4, column=2)
-button_clear.grid(row=4, column=1)
-button_add.grid(row=1, column=3)
-button_subtract.grid(row=2, column=3)
-button_multiply.grid(row=3, column=3)
-button_divide.grid(row=4, column=3)
-button_sqrt.grid(row=5, column=0)
-button_mr.grid(row=5, column=1)
-button_m_add.grid(row=5, column=2)
-button_mc.grid(row=5, column=3)
-button_m_sub.grid(row=6, column=1)
-button_decimal.grid(row=6,column=0)
+button_0.grid(row=4, column=1)
+button_decimal.grid(row=4,column=2)
+
+button_clear.grid(row=5, column=0, columnspan=2, sticky=W)
+button_equal.grid(row=5, column=1, columnspan=2, sticky=E)
+
+button_subtract.grid(row=4, column=3)
+button_add.grid(row=3, column=3)
+button_multiply.grid(row=2, column=3)
+button_divide.grid(row=1, column=3)
+button_plus_minus.grid(row=4, column=0)
+
+button_sqrt.grid(row=5, column=3)
+
+button_mr.grid(row=6, column=0)
+button_m_add.grid(row=6, column=1)
+button_m_sub.grid(row=6, column=2)
+button_mc.grid(row=6, column=3)
+
 
 root.mainloop()
