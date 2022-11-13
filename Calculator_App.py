@@ -2,12 +2,17 @@ from tkinter import *
 import math
 from time import sleep
 
-root = Tk()
-root.title("A Better Calculator")
-root.iconbitmap("D:\PycharmProjects\Tkinter_GUI\\noun_itsukushima_shrine_2935953_vU0_icon.ico")
+game = Tk()
+game.title("A Better Calculator")
+game.iconbitmap("D:\PycharmProjects\Tkinter_GUI\\noun_itsukushima_shrine_2935953_vU0_icon.ico")
+
+root = LabelFrame(game, text="This a good calculator!", padx=5, pady=5)
+root.pack(padx=10, pady=10)
 
 e = Entry(root, width=30, borderwidth=10)
 e.grid(row=0, column=0, columnspan=5)
+
+
 
 
 def button_click(number):
@@ -223,4 +228,4 @@ button_mc.grid(row=6, column=3)
 button_bck.grid(row=7, column=0)
 
 
-root.mainloop()
+game.mainloop()
