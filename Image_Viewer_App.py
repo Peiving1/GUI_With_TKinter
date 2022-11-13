@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk,Image
+from PIL import Image
 
 root = Tk()
 root.title("Image Viewer")
