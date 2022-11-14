@@ -6,10 +6,14 @@ game = Tk()
 game.title("A Better Calculator")
 game.iconbitmap("D:\PycharmProjects\Tkinter_GUI\\noun_itsukushima_shrine_2935953_vU0_icon.ico")
 
-root = LabelFrame(game, text="This a good calculator!", padx=5, pady=5)
-root.pack(padx=10, pady=10)
+# Defines the two different frames, one basic calculator and one to call more advanced functions
+calu = LabelFrame(game, text="This a good calculator!", padx=5, pady=5)
+calu.pack(padx=10, pady=10)
 
-e = Entry(root, width=30, borderwidth=10)
+function_btns = LabelFrame(game, text="Hopefully this works", padx=5, pady=5)
+function_btns.pack(padx=10,pady=10)
+
+e = Entry(calu, width=30, borderwidth=10)
 e.grid(row=0, column=0, columnspan=5)
 
 
@@ -143,53 +147,53 @@ def button_bck():
 
 # Define Buttons
 
-button_1 = Button(root, text="1", padx=25, pady=20,
+button_1 = Button(calu, text="1", padx=25, pady=20,
                   command=lambda: button_click(1))
-button_2 = Button(root, text="2", padx=25, pady=20,
+button_2 = Button(calu, text="2", padx=25, pady=20,
                   command=lambda: button_click(2))
-button_3 = Button(root, text="3", padx=25, pady=20,
+button_3 = Button(calu, text="3", padx=25, pady=20,
                   command=lambda: button_click(3))
-button_4 = Button(root, text="4", padx=25, pady=20,
+button_4 = Button(calu, text="4", padx=25, pady=20,
                   command=lambda: button_click(4))
-button_5 = Button(root, text="5", padx=25, pady=20,
+button_5 = Button(calu, text="5", padx=25, pady=20,
                   command=lambda: button_click(5))
-button_6 = Button(root, text="6", padx=25, pady=20,
+button_6 = Button(calu, text="6", padx=25, pady=20,
                   command=lambda: button_click(6))
-button_7 = Button(root, text="7", padx=25, pady=20,
+button_7 = Button(calu, text="7", padx=25, pady=20,
                   command=lambda: button_click(7))
-button_8 = Button(root, text="8", padx=25, pady=20,
+button_8 = Button(calu, text="8", padx=25, pady=20,
                   command=lambda: button_click(8))
-button_9 = Button(root, text="9", padx=25, pady=20,
+button_9 = Button(calu, text="9", padx=25, pady=20,
                   command=lambda: button_click(9))
-button_0 = Button(root, text="0", padx=25, pady=20,
+button_0 = Button(calu, text="0", padx=25, pady=20,
                   command=lambda: button_click(0))
-button_add = Button(root, text="+", padx=28, pady=20,
+button_add = Button(calu, text="+", padx=28, pady=20,
                     command=button_add)
-button_clear = Button(root, text="C", padx=41, pady=20,
+button_clear = Button(calu, text="C", padx=41, pady=20,
                       command=button_clear, fg="red")
-button_equal = Button(root, text="=", padx=41, pady=20,
+button_equal = Button(calu, text="=", padx=41, pady=20,
                       command=button_equal)
-button_subtract = Button(root, text="-", padx=29, pady=20,
+button_subtract = Button(calu, text="-", padx=29, pady=20,
                          command=button_subtract)
-button_divide = Button(root, text="/", padx=29, pady=20,
+button_divide = Button(calu, text="/", padx=29, pady=20,
                        command=button_divide)
-button_multiply = Button(root, text="*", padx=29, pady=20,
+button_multiply = Button(calu, text="*", padx=29, pady=20,
                          command=button_multiply)
-button_sqrt = Button(root, text="√", padx=24, pady=20,
+button_sqrt = Button(calu, text="√", padx=24, pady=20,
                      command=button_sqrt)
-button_mr = Button(root, text="MR", padx=19, pady=20,
+button_mr = Button(calu, text="MR", padx=19, pady=20,
                    command=button_mr)
-button_m_add = Button(root, text="M+", padx=20, pady=20,
+button_m_add = Button(calu, text="M+", padx=20, pady=20,
                       command=button_m_add)
-button_mc = Button(root, text="MC", padx=20, pady=20,
+button_mc = Button(calu, text="MC", padx=20, pady=20,
                    command=button_mc)
-button_m_sub = Button(root, text="M-", padx=20, pady=20,
+button_m_sub = Button(calu, text="M-", padx=20, pady=20,
                       command=button_m_sub)
-button_decimal = Button(root, text=".", padx=25, pady=20,
+button_decimal = Button(calu, text=".", padx=25, pady=20,
                         command=button_decimal)
-button_plus_minus = Button(root, text= "+/-", padx=20, pady=20,
+button_plus_minus = Button(calu, text= "+/-", padx=20, pady=20,
                            command=button_plus_minus)
-button_bck = Button(root, text="bck", padx=18, pady=20,
+button_bck = Button(calu, text="bck", padx=18, pady=20,
                     command=button_bck)
 
 # Put buttons on the screen
