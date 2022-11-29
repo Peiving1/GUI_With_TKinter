@@ -102,9 +102,7 @@ def button_plus_minus():
         e.insert(0, num)
 
 def button_decimal():
-    num = e.get()
-    e.delete(0, END)
-    e.insert(0, num + ".")
+    e.insert(END, ".")
 
 def button_mr():
     # Recall the current memory register value
@@ -245,46 +243,51 @@ def pyt():
     def button_num(number):
         enter.insert(END, number)
 
-    def button_pyt():
-        enter.delete(0,END)
-        enter.insert(0, "Enter first num: ")
+    def decimal():
+        enter.insert(END, ".")
 
-    def button_ent():
+    def reset():
+        global button_pyt
+        enter.delete(0, END)
+        enter.insert(0, "Enter first num: ")
+        button_pyt.destroy()
+        button_ent = Button(pyt_screen, text="ent", padx=11, pady=10,
+                            command=button_enter, bg="red")
+        button_ent.grid(row=4, column=2)
+
+    def button_enter():
         global pyt
         global num1
         global num2
+        global button_pyt
         mid = enter.get()
-        mid = str(mid[6:-6])
-        if mid == "first ":
+        if "first" in mid:
             num1 = enter.get() + " "
-            num1 = num1[17:-1]
-            enter.delete(0,END)
+            num1 = num1[16:-1]
+            enter.delete(0, END)
             enter.insert(0, "Enter second num: ")
+            print(num1)
 
-        elif mid == "second ":
+        elif "second" in mid:
             num2 = enter.get() + " "
             num2 = num2[18:-1]
             num2 = float(num2)
             num1 = float(num1)
+            print(num2)
             num3 = num2 ** 2 + num1 ** 2
             num3 = str(num3 ** (1 / 2))
             enter.delete(0, END)
             enter.insert(0, num3)
             print("num1= ", num1, "num2= ", num2)
             print("num3", num3)
+            button_ent.destroy()
+            button_pyt = Button(pyt_screen, text="RES", padx=10, pady=10,
+                                command=reset)
+            button_pyt.grid(row=4, column=2)
 
         else:
             print(mid)
             print("soy")
-
-
-
-
-
-
-
-
-
 
     # Define buttons
 
@@ -313,10 +316,10 @@ def pyt():
     button_0 = Button(pyt_screen, text="0", padx=20, pady=10,
                       command=lambda: button_num(0))
 
-    button_pyt = Button(pyt_screen, text="reset", padx=4, pady=10,
-                        command=button_pyt)
-    button_ent = Button(pyt_screen, text="ent", padx=10, pady=10,
-                        command=button_ent)
+    button_ent = Button(pyt_screen, text="ent", padx=11, pady=10,
+                        command=button_enter)
+    button_dec = Button(pyt_screen, text=".", padx=20, pady=10,
+                        command=decimal)
 
     # Put buttons on screen
 
@@ -331,8 +334,9 @@ def pyt():
     button_9.grid(row=1, column=0)
     button_0.grid(row=4, column=1)
 
-    button_pyt.grid(row=1, column=3)
-    button_ent.grid(row=2, column=3)
+    button_dec.grid(row=4, column=0)
+
+    button_ent.grid(row=4, column=2)
     enter.grid(row=0, column=0, columnspan=3)
 
     pyt_screen.mainloop()
@@ -351,10 +355,7 @@ def loga():
         e.insert(END, number)
 
     def dec():
-        num = str(e.get())
-        e.delete(0, END)
-        num1 = num + "."
-        e.insert(0, num1)
+        e.insert(END, ".")
 
     def res():
         global reset
