@@ -10,7 +10,7 @@ game.iconbitmap("D:\PycharmProjects\Tkinter_GUI\\noun_itsukushima_shrine_2935953
 calu = LabelFrame(game, text="This a good calculator!", padx=5, pady=5)
 calu.grid(row=0, column=0, padx=10, pady=10)
 
-function_btns = LabelFrame(game, text="H", padx=5, pady=5)
+function_btns = LabelFrame(game, text="Extra", padx=5, pady=5)
 function_btns.grid(row=0, column=1,padx=10,pady=10)
 
 e = Entry(calu, width=30, borderwidth=10)
